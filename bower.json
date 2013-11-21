@@ -5,10 +5,16 @@
   "authors": [
     "Owen Scott <owen.m.scott@gmail.com>"
   ],
-  "description": "Offline Syncing for client-side Web applications",
+  "description": "Offline syncing for client-side Web applications",
   "main": "app.js",
   "license": "MIT",
   "private": true,
+  "dependencies": {
+    "persistencejs": "*",
+    "jquery": "1.9.x",
+    "backbone": "1.1.x",
+    "bootstrap": "*"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
