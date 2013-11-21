@@ -1,4 +1,4 @@
-//Copyright 2012-2013 Carlos T. Linares & Owen Scott.  All rights reserved.  
+//Copyright 2012-2013 Carlos T. Linares & Owen Scott.  All rights reserved.
 //We plan to release our code under an open source license, probably GPL v3.
 
 /***** SETUP *****/
@@ -37,7 +37,7 @@ if ('development' == app.get('env')) {
         cache: false
     });
 }
-    
+
 var nodeUserGid = "ec2-user";
 var nodeUserUid = "ec2-user";
 
@@ -46,15 +46,15 @@ var persistenceSession = function(req, res, next) {
 
     req.conn = persistenceStore.getSession();
     res.end = function() {
-      req.conn.close();
-      end.apply(res, arguments);
+        req.conn.close();
+        end.apply(res, arguments);
     };
     req.conn.transaction(function(tx) {
         req.tx = tx;
         next();
-      });
-  };
-  
+    });
+};
+
 function log(o) {
     sys.print(sys.inspect(o) + "\n");
 }
@@ -90,50 +90,50 @@ persistenceSync.config(persistence);
 var session = persistenceStore.getSession();
 var entities = new Object();
 
-session.transaction(function(tx){
-  entities["Village"] = persistence.define('Village', {
-    name: "TEXT",
-    district: "TEXT",
-    population: "INT",
-    numBasicLatrines: "INT",
-    numImprvLatrines: "INT",
-    numFuncWPs: "INT",
-    numNonFuncWPs: "INT",
-    _lastChange: "BIGINT"
-  });
-  entities["District"] = persistence.define('District',{
-    name: "TEXT",
-    population:"INT",
-    boundary:"TEXT",
-    _lastChange: "BIGINT"  
-  });
-  session.schemaSync(tx, function(tx){ 
-    entities["Village"].enableSync(tx, function(tx){
-      persistence.flush(tx);
-    });  
-    entities["District"].enableSync(tx, function(tx){
-      persistence.flush(tx);
-    });  
-  });  
+session.transaction(function(tx) {
+    entities["Village"] = persistence.define('Village', {
+        name: "TEXT",
+        district: "TEXT",
+        population: "INT",
+        numBasicLatrines: "INT",
+        numImprvLatrines: "INT",
+        numFuncWPs: "INT",
+        numNonFuncWPs: "INT",
+        _lastChange: "BIGINT"
+    });
+    entities["District"] = persistence.define('District', {
+        name: "TEXT",
+        population: "INT",
+        boundary: "TEXT",
+        _lastChange: "BIGINT"
+    });
+    session.schemaSync(tx, function(tx) {
+        entities["Village"].enableSync(tx, function(tx) {
+            persistence.flush(tx);
+        });
+        entities["District"].enableSync(tx, function(tx) {
+            persistence.flush(tx);
+        });
+    });
 });
 session.close();
 
 
 /***** APP IMPLEMENTATION *****/
-app.get('/', function(req, res, next){
-  var body = 'Hello World';
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Content-Length', body.length);
-  res.end(body);
+app.get('/', function(req, res, next) {
+    var body = 'Hello World';
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Length', body.length);
+    res.end(body);
 });
 
-app.get('/sync/*',  function(req, res) {
+app.get('/sync/*', function(req, res) {
     var url_parts = url.parse(req.url, true);
     var entity = url_parts.pathname;
     entity = entity.match("[a-zA-Z0-9]*$");
     console.log("\n===========GET entity is " + entity + " from " + req.ip);
     var session = persistenceStore.getSession();
-    session.transaction(function(tx){
+    session.transaction(function(tx) {
         persistenceSync.pushUpdates(session, tx, entities[entity], req.query.since, function(updates) {
             res.header("Access-Control-Allow-Origin", "*");
             res.send(updates);
@@ -141,14 +141,14 @@ app.get('/sync/*',  function(req, res) {
     });
 });
 
-app.post('/sync/*',  function(req, res) {
+app.post('/sync/*', function(req, res) {
     var url_parts = url.parse(req.url, true);
     var entity = url_parts.pathname;
     entity = entity.match("[a-zA-Z0-9]*$");
     console.log("\n===========POST entity is " + entity + " from " + req.ip);
 
     var session = persistenceStore.getSession();
-    session.transaction(function(tx){
+    session.transaction(function(tx) {
         persistenceSync.receiveUpdates(session, tx, entities[entity], req.body, function(result) {
             res.header("Access-Control-Allow-Origin", "*");
             res.send(result);
@@ -162,8 +162,7 @@ app.listen(port, function() {
         try {
             process.setgid(nodeUserGid);
             console.log('New gid: ' + process.getgid());
-        }
-        catch (err) {
+        } catch (err) {
             console.log('Failed to set gid: ' + err);
         }
     }
@@ -172,8 +171,7 @@ app.listen(port, function() {
         try {
             process.setuid(nodeUserUid);
             console.log('New uid: ' + process.getuid());
-        }
-        catch (err) {
+        } catch (err) {
             console.log('Failed to set uid: ' + err);
         }
     }
