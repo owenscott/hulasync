@@ -5,3 +5,16 @@ bower_components
 node.debug
 npm-debug.log
 
+lib-cov
+*.seed
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+node_modules
