@@ -6,6 +6,7 @@ Offline Syncing for ClientSide Web Applications
 Steps to run
 
 * npm install
+* bower install
 * node server.js
 
 
