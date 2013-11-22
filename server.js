@@ -49,7 +49,7 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.bodyParser());
-app.use(express.static(__dirName));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(persistenceSession);
 
 
