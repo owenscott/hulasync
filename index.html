@@ -6,15 +6,39 @@
         
         <!-- CSS files -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">        
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">    
+        <link rel="stylesheet" href="public/css/main.css">
     </head>
     
     <body>
+        <div class="container">
+            <!-- Logo -->
+            <div id="branding">
+                <a href="#"><img src="public/img/hulasync.png" alt="hulasync"/></a>
+                <a href="#"><img src="public/img/tagline.png" alt="offline syncing for client-side web apps"/></a>
+            </div>
+            
+            <!-- Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">                
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#/data">Data</a></li>
+                        <li><a href="#/dashboard">Dashboard</a></li>
+                        <li><a href="#/about">About</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <hr />
+            
+            <!-- Main content area -->
+            <div class="page">
+            </div>
+        </div>
         
         <!-- JS files -->
-        <script src="bower_components/backbone-amd/backbone.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/backbone-amd/backbone.js"></script>        
         <script src="bower_components/underscore-amd/underscore.js"></script>
         <script src="public/js/app.js"></script>
         
