@@ -2869,22 +2869,21 @@ var Backbone = require("backbone"),
 //Set jquery dependancy on Backbone.
 Backbone.$ = window.$;
 
-var villages = new Villages();
+function renderVillageData(collection, response, options) {
 
-villages.fetch({
-    success: function(collection, response, options) {
+    console.log("Done fetching village data");
 
-        console.log("Done fetching village data");
+    console.log("Length =>" + collection.length);
 
-        console.log("Length =>" + collection.length);
+    var tbl = new VillageTable({
+        collection: collection.models
+    });
+}
 
-        var tbl = new VillageTable({
-            collection: collection.models
-        });
-    }
+//Boot Strap app
+new Villages().fetch({
+    success: renderVillageData
 });
-
-
 
 },{"./collections/villages":5,"./views/villageTblView":7,"backbone":1}],5:[function(require,module,exports){
 var Backbone = require("backbone"),
