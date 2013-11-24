@@ -10,10 +10,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "persistencejs": "*",
     "jquery": "1.9.x",
-    "backbone-amd": "*",
-    "underscore-amd": "*",
     "bootstrap": "*"
   },
   "ignore": [
