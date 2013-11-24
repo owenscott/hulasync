@@ -10,7 +10,7 @@ var VillageView = Backbone.View.extend({
 
     render: function() {
         console.log("Rendering village row");
-
+        console.log(this.$el.html);
         this.$el.html(this.template(this.model.toJSON()));
 
         console.log("Done Rendering village row");

@@ -7,24 +7,22 @@
 <body>
 
   <div id="villagesContainer">
-  <table>
-     <thead>
-          <th>Village Name</th>
-          <th>District</th>
-          <th>Population</th>
-          <th>Basic Latrines</th>
-          <th>Improved Latrines</th>
-          <th>Functional WPs</th>
-          <th>Non Functional WPs</th>
-      </thead>
-      <tbody>
-        <div id="villages"></div>
-      </tbody>
-  </table>
+      <table>
+         <thead>
+              <th>Village Name</th>
+              <th>District</th>
+              <th>Population</th>
+              <th>Basic Latrines</th>
+              <th>Improved Latrines</th>
+              <th>Functional WPs</th>
+              <th>Non Functional WPs</th>
+          </thead>
+          <tbody id="villageRows">
+          </tbody>
+      </table>
   </div>
 
   <script type="text/template" id="villageTemplate">
-    <tr>
       <td><%= villageName %></td>
       <td><%= district %></td>
       <td><%= population %></td>
@@ -32,7 +30,6 @@
       <td><%= numImprvLatrines %></td>
       <td><%= numFuncWPs %></td>
       <td><%= numNonFuncWPs %></td>
-    <tr>
   </script>
 
   <script src="/bundle.js"></script>

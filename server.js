@@ -54,7 +54,7 @@ app.get('/villages', function(req, res, next) {
         numFuncWPs: "259",
         numNonFuncWPs: "150"
     }, {
-        villageName: "Elephat",
+        villageName: "Elephant",
         district: "Tanzania",
         population: "2000",
         numBasicLatrines: "300",

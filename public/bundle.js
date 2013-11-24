@@ -2919,7 +2919,7 @@ var Backbone = require("backbone"),
 var VillageTblView = Backbone.View.extend({
     events: {},
 
-    el: '#villages',
+    el: '#villageRows',
 
     initialize: function() {
         this.render();
@@ -2963,7 +2963,7 @@ var VillageView = Backbone.View.extend({
 
     render: function() {
         console.log("Rendering village row");
-
+        console.log(this.$el.html);
         this.$el.html(this.template(this.model.toJSON()));
 
         console.log("Done Rendering village row");

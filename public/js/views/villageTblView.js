@@ -5,7 +5,7 @@ var Backbone = require("backbone"),
 var VillageTblView = Backbone.View.extend({
     events: {},
 
-    el: '#villages',
+    el: '#villageRows',
 
     initialize: function() {
         this.render();
