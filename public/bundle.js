@@ -2869,20 +2869,14 @@ var Backbone = require("backbone"),
 //Set jquery dependancy on Backbone.
 Backbone.$ = window.$;
 
-console.log("Initiating village table");
-
 var villages = new Villages();
-
-console.log("Done Initiating village table");
-
-console.log("Fetching village data");
 
 villages.fetch({
     success: function(collection, response, options) {
 
         console.log("Done fetching village data");
 
-        console.log(collection.length);
+        console.log("Length =>" + collection.length);
 
         var tbl = new VillageTable({
             collection: collection.models
@@ -2926,19 +2920,16 @@ var VillageTblView = Backbone.View.extend({
     },
 
     render: function() {
-        console.log("Rendering village table");
 
         this.collection.forEach(function(village) {
-            console.log(village);
 
             this.renderVillage(village);
+
         }, this);
 
-        console.log("Done rendering village table");
     },
 
     renderVillage: function(village) {
-        console.log("Rendering village");
 
         var villageView = new VillageView({
             model: village
@@ -2962,11 +2953,8 @@ var VillageView = Backbone.View.extend({
     template: _.template($('#villageTemplate').html()),
 
     render: function() {
-        console.log("Rendering village row");
-        console.log(this.$el.html);
-        this.$el.html(this.template(this.model.toJSON()));
 
-        console.log("Done Rendering village row");
+        this.$el.html(this.template(this.model.toJSON()));
 
         return this;
     }

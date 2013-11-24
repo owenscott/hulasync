@@ -12,19 +12,16 @@ var VillageTblView = Backbone.View.extend({
     },
 
     render: function() {
-        console.log("Rendering village table");
 
         this.collection.forEach(function(village) {
-            console.log(village);
 
             this.renderVillage(village);
+
         }, this);
 
-        console.log("Done rendering village table");
     },
 
     renderVillage: function(village) {
-        console.log("Rendering village");
 
         var villageView = new VillageView({
             model: village
