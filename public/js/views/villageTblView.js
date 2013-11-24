@@ -1,11 +1,14 @@
 var Backbone = require("backbone"),
     _ = require("underscore"),
-    VillageView = require("./villageView");
+    VillageRow = require("./villageView");
 
 var VillageTblView = Backbone.View.extend({
-    events: {},
 
-    el: '#villageRows',
+    el: '#villages',
+
+    events: {
+        'click #add': 'addVillage'
+    },
 
     initialize: function() {
         this.render();
@@ -13,21 +16,21 @@ var VillageTblView = Backbone.View.extend({
 
     render: function() {
 
-        this.collection.forEach(function(village) {
-
-            this.renderVillage(village);
-
-        }, this);
-
+        this.collection.on("add", this.renderVillageRow, this);
     },
 
-    renderVillage: function(village) {
+    renderVillageRow: function(village) {
 
-        var villageView = new VillageView({
+        var villageRow = new VillageRow({
             model: village
         });
 
-        this.$el.append(villageView.render().el);
+        $("#villageRows").append(villageRow.render().el);
+    },
+
+    addVillage: function(e) {
+        e.preventDefault();
+        alert("Adding village");
     }
 });
 

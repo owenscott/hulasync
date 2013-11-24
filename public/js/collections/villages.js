@@ -1,10 +1,11 @@
 var Backbone = require("backbone"),
     Village = require("../models/village");
 
-var VillagesCollection = Backbone.Collection.extend({
+var Villages = Backbone.Collection.extend({
     model: Village,
 
     url: '/villages'
 });
 
-module.exports = VillagesCollection;
+
+module.exports = Villages;

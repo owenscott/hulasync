@@ -2869,33 +2869,32 @@ var Backbone = require("backbone"),
 //Set jquery dependancy on Backbone.
 Backbone.$ = window.$;
 
-function renderVillageData(collection, response, options) {
+(function main() {
 
-    console.log("Done fetching village data");
+    var villages = new Villages();
 
-    console.log("Length =>" + collection.length);
-
-    var tbl = new VillageTable({
-        collection: collection.models
+    var villagesTable = new VillageTable({
+        collection: villages
     });
-}
 
-//Boot Strap app
-new Villages().fetch({
-    success: renderVillageData
-});
+    villages.fetch();
+
+})();
+
+
 
 },{"./collections/villages":5,"./views/villageTblView":7,"backbone":1}],5:[function(require,module,exports){
 var Backbone = require("backbone"),
     Village = require("../models/village");
 
-var VillagesCollection = Backbone.Collection.extend({
+var Villages = Backbone.Collection.extend({
     model: Village,
 
     url: '/villages'
 });
 
-module.exports = VillagesCollection;
+
+module.exports = Villages;
 
 },{"../models/village":6,"backbone":1}],6:[function(require,module,exports){
 var Backbone = require("backbone");
@@ -2907,12 +2906,15 @@ module.exports = Village;
 },{"backbone":1}],7:[function(require,module,exports){
 var Backbone = require("backbone"),
     _ = require("underscore"),
-    VillageView = require("./villageView");
+    VillageRow = require("./villageView");
 
 var VillageTblView = Backbone.View.extend({
-    events: {},
 
-    el: '#villageRows',
+    el: '#villages',
+
+    events: {
+        'click #add': 'addVillage'
+    },
 
     initialize: function() {
         this.render();
@@ -2920,21 +2922,21 @@ var VillageTblView = Backbone.View.extend({
 
     render: function() {
 
-        this.collection.forEach(function(village) {
-
-            this.renderVillage(village);
-
-        }, this);
-
+        this.collection.on("add", this.renderVillageRow, this);
     },
 
-    renderVillage: function(village) {
+    renderVillageRow: function(village) {
 
-        var villageView = new VillageView({
+        var villageRow = new VillageRow({
             model: village
         });
 
-        this.$el.append(villageView.render().el);
+        $("#villageRows").append(villageRow.render().el);
+    },
+
+    addVillage: function(e) {
+        e.preventDefault();
+        alert("Adding village");
     }
 });
 

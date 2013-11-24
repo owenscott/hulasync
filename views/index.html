@@ -6,8 +6,20 @@
 </head>
 <body>
 
-  <div id="villagesContainer">
-      <table>
+  <div id="villages">
+
+    <form id="frmVillage" action="#">
+        <ul><label for="title">Village Name: </label><input id="villageName" type="text" /></ul>
+        <ul><label for="title">District: </label><input id="district" type="text" /></ul>
+        <ul><label for="author">Population: </label><input id="population" type="text" /></ul>
+        <ul><label for="releaseDate">Basic Latrines: </label><input id="numBasicLatrines" type="text" /></ul>
+        <ul><label for="keywords">Improved Latrines: </label><input id="numImprvLatrines" type="text" /></ul>
+        <ul><label for="keywords">Functional WPs: </label><input id="numFuncWPs" type="text" /></ul>
+        <ul><label for="keywords">Non Functional WPs: </label><input id="numNonFuncWPs" type="text" /></ul>
+        <ul><button id="add">Add</button></ul>
+    </form>
+
+    <table>
          <thead>
               <th>Village Name</th>
               <th>District</th>

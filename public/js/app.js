@@ -5,18 +5,16 @@ var Backbone = require("backbone"),
 //Set jquery dependancy on Backbone.
 Backbone.$ = window.$;
 
-function renderVillageData(collection, response, options) {
+(function main() {
 
-    console.log("Done fetching village data");
+    var villages = new Villages();
 
-    console.log("Length =>" + collection.length);
-
-    var tbl = new VillageTable({
-        collection: collection.models
+    var villagesTable = new VillageTable({
+        collection: villages
     });
-}
 
-//Boot Strap app
-new Villages().fetch({
-    success: renderVillageData
-});
+    villages.fetch();
+
+})();
+
+
