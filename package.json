@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "express": "3.x",
-    "swig": "1.x",
-    "sqlite": "1.x"
+    "swig": "1.x"
   }
 }
