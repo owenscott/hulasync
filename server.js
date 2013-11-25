@@ -5,7 +5,7 @@ var express = require('express'),
     app = express();
 
 //Express settings
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
