@@ -5,12 +5,13 @@
   "private": true,
   "author": "Owen Scott <owen.m.scott@gmail.com>",
   "repository": {
-      "url": "git@github.com:owenscott/hulasync.git",
-      "type": "git"
+    "url": "git@github.com:owenscott/hulasync.git",
+    "type": "git"
   },
   "dependencies": {
     "express": "3.x",
     "swig": "1.x",
-    "sqlite": "1.x"
+    "sqlite": "1.x",
+    "mongodb": "~1.3.20"
   }
 }
