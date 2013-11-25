@@ -14,7 +14,6 @@
     "backbone": "~1.1.0",
     "underscore": "~1.5.2",
     "underscore.string": "~2.3.3",
-    "async": "~0.2.9",
-    "backbone-forms": "~0.13.0"
+    "async": "~0.2.9"
   }
 }
