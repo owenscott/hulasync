@@ -35,13 +35,94 @@
             </div>
         </div>
         
+        <!-- Templates -->
+        <script type="text/template" id="data-list">
+            <% var all_attributes = _.keys(attrs);  // dynamically get all the attributes for the village
+               attributes = _.without(all_attributes, '_id'); // omit internal MongoDB id/locator
+            %>
+            <div class="table-header">
+                <h2>Village Data</h2>
+                <a href="#/add" class="btn btn-primary table-add"> Add Village</a>
+            </div>
+            <table class="table table-responsive table-bordered table-striped" id="data-table">
+            <thead>
+                <th></th> <!-- empty column for delete buttons -->
+                <% _.each(attributes, function(attribute) { %>
+                    <th><%= attribute %> </th>
+                <% }); %>                
+            </thead>
+            <tbody>
+                <% _.each(villages, function(village) { %>
+                    <tr>
+                        <td> <button type="button" class="close" id="<%= village.get('_id') %>">&times;</button></td>
+                        <% _.each(attributes, function(attribute) { %>
+                            <td> <%= village.get(attribute) %> </td>
+                        <% }); %>                        
+                    </tr>
+                <% }); %>
+            </tbody>
+            </table>
+        </script>   
+        
+        <script type="text/template" id="village-add">
+            <h3>Add New Village</h3>
+            <form role="form" class="form-horizontal village-add-form">
+                <div class="form-group">
+                    <label for="villageName" class="col-sm-4 control-label">Village Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="villageName" name="villageName" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="district" class="col-sm-4 control-label">District</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="district" name="district" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="population" class="col-sm-4 control-label">Population</label>
+                    <div class="col-sm-1">
+                        <input type="text" id="population" name="population" class="form-control">
+                    </div>                        
+                </div>
+                <div class="form-group">
+                    <label for="basicLatrines" class="col-sm-4 control-label">Number of Basic Latrines</label>
+                    <div class="col-sm-1">
+                        <input type="text" id="basicLatrines" name="basicLatrines" class="form-control">
+                    </div>                        
+                </div>
+                <div class="form-group">
+                    <label for="improvedLatrines" class="col-sm-4 control-label">Number of Improved Latrines</label>
+                    <div class="col-sm-1">
+                        <input type="text" id="improvedLatrines" name="improvedLatrines" class="form-control">
+                    </div>                        
+                </div>
+                <div class="form-group">
+                    <label for="functionalWPs" class="col-sm-4 control-label">Number of Functional WPs</label>
+                    <div class="col-sm-1">
+                        <input type="text" id="functionalWPs" name="functionalWPs" class="form-control">
+                    </div>                        
+                </div>
+                <div class="form-group">
+                    <label for="nonFunctionalWPs" class="col-sm-4 control-label">Number of Non-Functional WPs</label>
+                    <div class="col-sm-1">
+                        <input type="text" id="nonFunctionalWPs" name="nonFunctionalWPs" class="form-control">
+                    </div>                        
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="btn btn-primary">Add Village</button>
+                    </div>
+                </div>
+            </form>
+        </script>
+        
         <!-- JS files -->
         <script src="bower_components/jquery/jquery.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/backbone-amd/backbone.js"></script>        
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>   
         <script src="bower_components/underscore-amd/underscore.js"></script>
+        <script src="bower_components/backbone-amd/backbone.js"></script>        
         <script src="public/js/app.js"></script>
         
-        <!-- Templates -->
     </body>
 </html>

@@ -6,8 +6,13 @@
         Main stylesheet for hulasync application.
 */
 
+#branding {
+    margin-bottom: -40px;
+}
+
 .navbar {
-    margin-bottom: 0px;
+    margin-bottom: -10px;
+    margin-right: 10px;
 }
 
 .nav > li > a:hover {
@@ -20,3 +25,25 @@ hr {
     -webkit-margin-after: 0px;
 }
 
+h3 {
+    text-align: center;
+}
+
+#data-table {
+    margin-top: 10px;
+}
+
+.table-header {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.table-header h2 {
+    display: inline;
+    margin-left: 40%;
+}
+
+.table-add {
+    float: right;
+    margin-right: 35%;
+}
