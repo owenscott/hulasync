@@ -4,6 +4,7 @@ bower_components
 *~
 node.debug
 npm-debug.log
+public/bundle.js
 
 lib-cov
 *.seed
