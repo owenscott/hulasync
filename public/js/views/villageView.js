@@ -1,5 +1,8 @@
 var Backbone = require("backbone"),
-    _ = require("underscore");
+    _ = require("underscore"),
+    $ = require('jquery-browserify');
+
+Backbone.$ = $;
 
 var VillageView = Backbone.View.extend({
     events: {},
