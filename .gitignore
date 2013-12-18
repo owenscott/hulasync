@@ -1,6 +1,7 @@
 .DS_Store
 bower_components
 *.swp
+*~
 node.debug
 npm-debug.log
 
