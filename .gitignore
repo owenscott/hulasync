@@ -2,10 +2,11 @@
 bower_components
 public/js/lib
 app/components
-*~
 *.swp
+*~
 node.debug
 npm-debug.log
+public/bundle.js
 
 lib-cov
 *.seed

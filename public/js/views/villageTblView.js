@@ -1,6 +1,9 @@
 var Backbone = require("backbone"),
     _ = require("underscore"),
-    VillageRow = require("./villageView");
+    VillageRow = require("./villageView"),
+    $ = require('jquery-browserify');
+
+Backbone.$ = $;
 
 var VillageTblView = Backbone.View.extend({
 
@@ -29,8 +32,9 @@ var VillageTblView = Backbone.View.extend({
     },
 
     addVillage: function(e) {
-        e.preventDefault();
-        alert("Adding village");
+      //e.preventDefault();
+      //alert("Adding village");
+			console.log(e);
     }
 });
 
