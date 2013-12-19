@@ -1,5 +1,7 @@
 .DS_Store
 bower_components
+public/js/lib
+app/components
 *~
 *.swp
 node.debug
