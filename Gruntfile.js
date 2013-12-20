@@ -48,8 +48,9 @@ module.exports = function(grunt) {
       your_target: {
 				dest: 'public/manifest.appcache',
 				cache: ['bundle.js', 'index.html']
-      }
-    }
+			}
+		}
+
   });
 };
 

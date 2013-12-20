@@ -33,6 +33,12 @@ app.get('/', function(req, res, next) {
     });
 });
 
+app.get('/index.html', function(req, res, next) {
+    res.render('index', {
+        title: 'HulaSync'
+    });
+});
+
 app.get('/villages', function(req, res, next) {
 
     var villages = [{
