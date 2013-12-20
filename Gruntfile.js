@@ -1,10 +1,10 @@
 var grunt = require('grunt');
 
 module.exports = function(grunt) {
-	
-	//Project configuration
-	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+
+  //Project configuration
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     jshint: {
       src: ['Gruntfile.js', 'server.js', 'public/js/app.js', 'public/js/**/*.js'],
       options: {
@@ -31,39 +31,40 @@ module.exports = function(grunt) {
         node: true
       }
     },
-    
-    browserify: {
-			dist: {
-				files: {
-				  'public/bundle.js': ['public/js/app.js', 'public/js/**/*.js'],
-				},
-				options: {
-				  //transform: ['uglifyjs']
-				}
-			}
-		},
-		
-		appcache: {
-			options: {
-			// Task-specific options go here.
-			},
-			your_target: {
+    watchify: {
+      options: {
+        debug: true
+      },
+      example: {
+        src: ['./public/js/app.js'],
+        dest: 'public/bundle.js'
+      },
+    },
+
+    appcache: {
+      options: {
+        // Task-specific options go here.
+      },
+      your_target: {
 				dest: 'public/manifest.appcache',
 				cache: ['bundle.js', 'index.html']
 			}
 		}
+
   });
 };
-	
-	
-	
+
+
+
 // Load JSHint task
 grunt.loadNpmTasks('grunt-contrib-jshint');
 
 // Default task.
-grunt.registerTask('default', ['jshint', 'browserify', 'appcache']);
 
 //grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-browserify');
-grunt.loadNpmTasks('grunt-appcache');
 
+grunt.loadNpmTasks('grunt-appcache');
+grunt.loadNpmTasks('grunt-watchify');
+
+// Default task.
+grunt.registerTask('default', ['watchify', 'jshint', 'appcache']);
