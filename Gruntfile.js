@@ -46,7 +46,8 @@ module.exports = function(grunt) {
         // Task-specific options go here.
       },
       your_target: {
-        // Target-specific file lists and/or options go here.
+				dest: 'public/manifest.appcache',
+				cache: ['public/bundle.js', 'index.html']
       }
     }
   });
@@ -57,10 +58,12 @@ module.exports = function(grunt) {
 // Load JSHint task
 grunt.loadNpmTasks('grunt-contrib-jshint');
 
-//grunt.loadNpmTasks('grunt-contrib-uglify');
-//grunt.loadNpmTasks('grunt-browserify');
+// Default task.
 
+//grunt.loadNpmTasks('grunt-contrib-uglify');
+
+grunt.loadNpmTasks('grunt-appcache');
 grunt.loadNpmTasks('grunt-watchify');
 
 // Default task.
-grunt.registerTask('default', ['watchify', 'jshint']);
+grunt.registerTask('default', ['watchify', 'jshint', 'appcache']);

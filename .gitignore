@@ -7,6 +7,7 @@ app/components
 node.debug
 npm-debug.log
 public/bundle.js
+public/manifest.appcache
 
 lib-cov
 *.seed
