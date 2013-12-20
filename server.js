@@ -18,7 +18,6 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bower_components')));
 
 // Development only
 if ('development' === app.get('env')) {
@@ -27,7 +26,6 @@ if ('development' === app.get('env')) {
         cache: false
     });
 }
-
 
 app.get('/', function(req, res, next) {
     res.render('index', {
@@ -65,7 +63,6 @@ app.get('/villages', function(req, res, next) {
 
     res.json(villages);
 });
-
 
 var port = process.env.PORT || 3000;
 
