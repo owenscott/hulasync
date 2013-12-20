@@ -45,9 +45,9 @@ module.exports = function(grunt) {
       options: {
         // Task-specific options go here.
       },
-      your_target: {
+      all: {
 				dest: 'public/manifest.appcache',
-				cache: ['bundle.js', 'index.html']
+				cache: ['index.html'] //'bundle.js']//['bundle.js', 'index.html']
 			}
 		}
 
@@ -61,10 +61,8 @@ grunt.loadNpmTasks('grunt-contrib-jshint');
 
 // Default task.
 
-//grunt.loadNpmTasks('grunt-contrib-uglify');
-
 grunt.loadNpmTasks('grunt-appcache');
 grunt.loadNpmTasks('grunt-watchify');
 
 // Default task.
-grunt.registerTask('default', ['watchify', 'jshint', 'appcache']);
+grunt.registerTask('default', ['watchify', 'jshint']); //, 'appcache'
