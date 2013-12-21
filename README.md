@@ -3,16 +3,21 @@ hulasync
 
 Offline Syncing for ClientSide Web Applications
 
-Steps to run
+Steps to run:
 
 * npm install
-* bower install
+* npm install -g grunt-cli
+* grunt
 * node server.js
 
+Commits to master:
 
-TODO
+* shouldn't break the build (which is pretty easy since there are no unit tests)
+* should "look right" and "work" (don't worry, we'll get to unit tests)
+
+Otherwise create a branch and hack away!
+
+Build Status
 ========
-- Backbone setup
-- Create data models in persistence.js
-- re-write Backbone sync method to use persistence API (e.g. http://dmfrancisco.github.io/Desligado/)
-- approach to sharing data model definition between backbone, server-side persistence, and client-side persistence
+
+[![Build Status](https://travis-ci.org/owenscott/hulasync.png?branch=master)](https://travis-ci.org/owenscott/hulasync)
