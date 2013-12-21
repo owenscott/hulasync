@@ -33,8 +33,15 @@ var VillageTblView = Backbone.View.extend({
 
     addVillage: function(e) {
       //e.preventDefault();
-      //alert("Adding village");
-			console.log(e);
+			this.collection.add({
+						villageName: "Elephant2s",
+						district: "Tanzania",
+						population: "2000",
+						numBasicLatrines: "300",
+						numImprvLatrines: "80",
+						numFuncWPs: "59",
+						numNonFuncWPs: "30"
+				});
     }
 });
 
