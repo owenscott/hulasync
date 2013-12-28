@@ -6,7 +6,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      src: ['Gruntfile.js', 'server.js', 'public/js/app.js', 'public/js/**/*.js'],
+      src: ['Gruntfile.js', 'server.js', 'app/app.js', 'public/js/**/*.js'],
       options: {
         curly: true,
         eqeqeq: true,
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         debug: true
       },
       example: {
-        src: ['./public/js/app.js'],
+        src: ['./app/app.js'],
         dest: 'public/bundle.js'
       },
     },

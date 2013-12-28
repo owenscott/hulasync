@@ -1,9 +1,7 @@
 var Backbone = require("backbone"),
-    _ = require("underscore"),
     VillageRow = require("./villageView"),
+    _ = require("underscore"),
     $ = require('jquery-browserify');
-
-Backbone.$ = $;
 
 var VillageTblView = Backbone.View.extend({
 
@@ -32,16 +30,17 @@ var VillageTblView = Backbone.View.extend({
     },
 
     addVillage: function(e) {
-      //e.preventDefault();
-			this.collection.add({
-						villageName: "Elephant2s",
-						district: "Tanzania",
-						population: "2000",
-						numBasicLatrines: "300",
-						numImprvLatrines: "80",
-						numFuncWPs: "59",
-						numNonFuncWPs: "30"
-				});
+        e.preventDefault();
+
+        this.collection.add({
+            villageName: "White tiger",
+            district: "Tanzania",
+            population: "2000",
+            numBasicLatrines: "300",
+            numImprvLatrines: "80",
+            numFuncWPs: "59",
+            numNonFuncWPs: "30"
+        });
     }
 });
 
