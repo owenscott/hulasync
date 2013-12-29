@@ -1,20 +1,27 @@
 var Backbone = require("backbone"),
     Villages = require("./collections/villages"),
-    VillageTable = require("./views/villageTblView"),
+    Village = require("./models/village"),
+    VillageTbl = require("./views/VillageTbl"),
+    VillageFrm = require("./views/VillageFrm"),
     $ = require('jquery-browserify');
 
 //Set jquery dependancy on Backbone.
-
 Backbone.$ = $;
 
 (function main() {
 
-    var villages = new Villages();
+    //Our Main collection to store all village data
+    var villages = new Villages;
 
-    var villagesTable = new VillageTable({
+    var villageFrm = new VillageFrm({
         collection: villages
     });
 
+    var villageTbl = new VillageTbl({
+        collection: villages
+    });
+
+    //Load from server
     villages.fetch();
 
 })();

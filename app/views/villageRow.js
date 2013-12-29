@@ -4,8 +4,7 @@ var Backbone = require("backbone"),
 
 Backbone.$ = $;
 
-var VillageView = Backbone.View.extend({
-    events: {},
+var VillageRow = Backbone.View.extend({
 
     tagName: 'tr',
 
@@ -20,4 +19,4 @@ var VillageView = Backbone.View.extend({
 
 });
 
-module.exports = VillageView;
+module.exports = VillageRow;

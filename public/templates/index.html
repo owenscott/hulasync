@@ -5,19 +5,23 @@
 </head>
 <body>
 
-  <div id="villages">
 
-    <form id="frmVillage" action="#">
-        <ul><label for="title">Village Name: </label><input id="villageName" type="text" /></ul>
-        <ul><label for="title">District: </label><input id="district" type="text" /></ul>
-        <ul><label for="author">Population: </label><input id="population" type="text" /></ul>
-        <ul><label for="releaseDate">Basic Latrines: </label><input id="numBasicLatrines" type="text" /></ul>
-        <ul><label for="keywords">Improved Latrines: </label><input id="numImprvLatrines" type="text" /></ul>
-        <ul><label for="keywords">Functional WPs: </label><input id="numFuncWPs" type="text" /></ul>
-        <ul><label for="keywords">Non Functional WPs: </label><input id="numNonFuncWPs" type="text" /></ul>
-        <ul><button id="add">Add</button></ul>
-    </form>
+  <div id="villagesFrm">
+    <script type="text/template" id="villageFrmTemplate">
+        <form id="frmVillage" action="#">
+            <ul><label for="title">Village Name: </label><input id="villageName" type="text" /></ul>
+            <ul><label for="title">District: </label><input id="district" type="text" /></ul>
+            <ul><label for="author">Population: </label><input id="population" type="text" /></ul>
+            <ul><label for="releaseDate">Basic Latrines: </label><input id="basicLatrines" type="text" /></ul>
+            <ul><label for="keywords">Improved Latrines: </label><input id="imprvLatrines" type="text" /></ul>
+            <ul><label for="keywords">Functional WPs: </label><input id="funcWPs" type="text" /></ul>
+            <ul><label for="keywords">Non Functional WPs: </label><input id="nonFuncWPs" type="text" /></ul>
+            <button id="add">Add</button>
+        </form>
+      </script>
+    </div
 
+  <div id="villagesTbl">
     <table>
          <thead>
               <th>Village Name</th>
@@ -37,10 +41,10 @@
       <td><%= villageName %></td>
       <td><%= district %></td>
       <td><%= population %></td>
-      <td><%= numBasicLatrines %></td>
-      <td><%= numImprvLatrines %></td>
-      <td><%= numFuncWPs %></td>
-      <td><%= numNonFuncWPs %></td>
+      <td><%= basicLatrines %></td>
+      <td><%= imprvLatrines %></td>
+      <td><%= funcWPs %></td>
+      <td><%= nonFuncWPs %></td>
   </script>
 
   <script src="/bundle.js"></script>

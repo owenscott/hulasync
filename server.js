@@ -48,26 +48,26 @@ app.get('/villages', function(req, res, next) {
         villageName: "Lion",
         district: "Nambia",
         population: "2000",
-        numBasicLatrines: "200",
-        numImprvLatrines: "100",
-        numFuncWPs: "159",
-        numNonFuncWPs: "50"
+        basicLatrines: "200",
+        imprvLatrines: "100",
+        funcWPs: "159",
+        nonFuncWPs: "50"
     }, {
         villageName: "Tiger",
         district: "Zambia",
         population: "5000",
-        numBasicLatrines: "500",
-        numImprvLatrines: "200",
-        numFuncWPs: "259",
-        numNonFuncWPs: "150"
+        basicLatrines: "500",
+        imprvLatrines: "200",
+        funcWPs: "259",
+        nonFuncWPs: "150"
     }, {
         villageName: "Elephant",
         district: "Tanzania",
         population: "2000",
-        numBasicLatrines: "300",
-        numImprvLatrines: "80",
-        numFuncWPs: "59",
-        numNonFuncWPs: "30"
+        basicLatrines: "300",
+        imprvLatrines: "80",
+        funcWPs: "59",
+        nonFuncWPs: "30"
     }];
 
     res.json(villages);
