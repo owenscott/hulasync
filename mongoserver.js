@@ -71,11 +71,53 @@ app.post('/villages', function(req, res) {
    village._lastChange = new Date();
    village.save(function(err, village) {
         if (err) {
-           console.log("Error saving!");
+           console.log("Error saving new village!");
            throw(err);
        }
        res.send(village);
     });
+});
+
+app.put('/villages/:id', function(req, res) {
+   var updatedVillage = req.body;
+   updatedVillage._lastChange = new Date();
+   delete updatedVillage._id;
+   
+   Village.findOne({_id: req.params.id}, function(err, village) {
+        if (err) {
+           console.log("Error finding village to update!");
+           throw(err);
+        }
+          
+        village.update(updatedVillage, function(err, rows, raw) {
+             if (err) {
+                console.log("Error saving updated village!");
+                throw(err);
+            }
+            res.send({updated: 1});
+         });
+   });
+});
+
+app.patch('/villages/:id', function(req, res) {
+   var updatedVillage = req.body;
+   updatedVillage._lastChange = new Date();
+   delete updatedVillage._id;
+   
+   Village.findOne({_id: req.params.id}, function(err, village) {
+        if (err) {
+           console.log("Error finding village to patch!");
+           throw(err);
+        }
+          
+        village.update(updatedVillage, function(err, rows, raw) {
+             if (err) {
+                console.log("Error saving patched village!");
+                throw(err);
+            }
+            res.send({updated: 1});
+         });
+   });
 });
 
 app.delete('/villages/:id', function(req, res) {

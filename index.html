@@ -49,15 +49,17 @@
                 <th></th> <!-- empty column for delete buttons -->
                 <% _.each(attributes, function(attribute) { %>
                     <th><%= attribute %> </th>
-                <% }); %>                
+                <% }); %>  
+                <th></th> <!-- empty column for edit buttons -->
             </thead>
             <tbody>
                 <% _.each(villages, function(village) { %>
-                    <tr>
-                        <td> <button type="button" class="close" id="<%= village.get('_id') %>">&times;</button></td>
+                    <tr id="<%= village.get('_id') %>">
+                        <td> <button type="button" class="close">&times;</button></td>
                         <% _.each(attributes, function(attribute) { %>
-                            <td> <%= village.get(attribute) %> </td>
-                        <% }); %>                        
+                            <td class="datablock attr-<%= attribute %> "> <%= village.get(attribute) %> </td>
+                        <% }); %>             
+                        <td> <button type="button" class="btn btn-default btn-xs editrow">Edit</button></td>
                     </tr>
                 <% }); %>
             </tbody>

@@ -38,7 +38,8 @@ var villageData = Backbone.Collection.extend({
 
 /***** MODELS *****/
 var Village = Backbone.Model.extend({
-    urlRoot: '/villages'    
+    urlRoot: '/villages',
+    idAttribute: '_id'
 });
 
 /***** VIEWS *****/
@@ -57,10 +58,11 @@ var VillageDisplay = Backbone.View.extend({
         });
     },
     events: {
-        'click .close': 'deleteVillage'
+        'click .close': 'deleteVillage',
+        'click .editrow': 'editVillage'
     },
     deleteVillage: function(ev) {
-        var villageID = $(ev.currentTarget).attr('id');
+        var villageID = $(ev.currentTarget).parents('tr').attr('id');
         var village = new Village({id: villageID});
         village.destroy( {
             success: function(resp) {
@@ -70,6 +72,56 @@ var VillageDisplay = Backbone.View.extend({
                 console.log("Error deleting village!");
             }
         });
+    },
+    editVillage: function(ev) {
+        var editButton = $(ev.currentTarget);
+        var state = $(editButton).text();
+        var row = $(editButton).parents('tr');
+        var villageID = $(row).attr('id');                
+        var model = { '_id': villageID }; //initialize the [updated] model that will be sent to the server
+        
+        if( state === "Edit") { // begin editing row
+            $(editButton).text("Done");
+            $(row).children('td.datablock').each( function() {
+               var tdText = $(this).text();
+               $(this).html('<input type="text" placeholder="'+ tdText +'">');
+            });
+        }
+        else if (state === "Done") { // done editing row    
+            $(row).children('td.datablock').each( function() {
+                var key, value;
+                var classText = $(this).attr('class');
+                var classes = classText.split(" ");
+                
+                /* get key for current attribute in edited model */
+                $(classes).each(function(index, element) { 
+                    if(element.match(/attr/)) {
+                        key = element.substr(5);
+                    }
+                });                
+                /* get value for current attribute in edited model */
+                $(this).children('input[type=text]').each( function(index, element) { //get value for edited model
+                    if($(element).val() !== "") {
+                        value = $(element).val();
+                    }
+                    else {
+                        value = $(element).attr('placeholder');
+                    }
+                });                
+                /* update model */
+                model[key] = value.trim();
+                /* restore text */
+                $(this).html(value.trim());
+            });
+            /* send model to server */
+            var village = new Village();
+            village.save(model, {
+                patch: true
+            });
+            
+            $(editButton).text("Edit"); //reset Edit button
+        }
+        
     }
 });
 
