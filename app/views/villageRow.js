@@ -2,8 +2,6 @@ var Backbone = require("backbone"),
     _ = require("underscore"),
     $ = require('jquery-browserify');
 
-Backbone.$ = $;
-
 var VillageRow = Backbone.View.extend({
 
     tagName: 'tr',
