@@ -11,7 +11,7 @@ Backbone.$ = $;
 (function main() {
 
     //Our Main collection to store all village data
-    var villages = new Villages;
+    var villages = new Villages();
 
     var villageFrm = new VillageFrm({
         collection: villages
