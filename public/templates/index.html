@@ -2,13 +2,14 @@
 <html>
 <head>
   <title>{{ title }}</title>
+   <link href="/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 
 
   <div id="villagesFrm">
     <script type="text/template" id="villageFrmTemplate">
-        <form id="frmVillage" action="#">
+        <form id="frmVillage" class="navbar-form navbar-right" action="#">
             <ul><label for="title">Village Name: </label><input id="villageName" type="text" /></ul>
             <ul><label for="title">District: </label><input id="district" type="text" /></ul>
             <ul><label for="author">Population: </label><input id="population" type="text" /></ul>
@@ -16,13 +17,13 @@
             <ul><label for="keywords">Improved Latrines: </label><input id="imprvLatrines" type="text" /></ul>
             <ul><label for="keywords">Functional WPs: </label><input id="funcWPs" type="text" /></ul>
             <ul><label for="keywords">Non Functional WPs: </label><input id="nonFuncWPs" type="text" /></ul>
-            <button id="add">Add</button>
+            <button id="add" class="btn btn-default">Add</button>
         </form>
       </script>
     </div
 
   <div id="villagesTbl">
-    <table>
+    <table class= "table" style="width: 70%">
          <thead>
               <th>Village Name</th>
               <th>District</th>
