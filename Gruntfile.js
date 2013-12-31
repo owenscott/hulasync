@@ -6,7 +6,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      src: ['Gruntfile.js', 'server.js', 'app/app.js', 'public/js/**/*.js'],
+      src: ['Gruntfile.js', 'server.js', 'app/app.js', 'app/**/*.js', '!public/js/*.js'],
       options: {
         curly: true,
         eqeqeq: true,
@@ -33,7 +33,8 @@ module.exports = function(grunt) {
     },
     watchify: {
       options: {
-        debug: true
+        debug: true,
+        keepalive: true
       },
       example: {
         src: ['./app/app.js'],
@@ -53,8 +54,6 @@ module.exports = function(grunt) {
 
   });
 };
-
-
 
 // Load JSHint task
 grunt.loadNpmTasks('grunt-contrib-jshint');
