@@ -34,34 +34,41 @@ module.exports = function(grunt) {
     watchify: {
       options: {
         debug: true,
-        keepalive: true
+        keepalive: false
       },
       example: {
         src: ['./app/app.js'],
         dest: 'public/bundle.js'
       },
     },
-
+    uglify: {
+      options: {
+        mangle: false
+      },
+      my_target: {
+        files: {
+          'public/bundle.min.js': ['public/bundle.js']
+        }
+      }
+    },
     appcache: {
       options: {
         // Task-specific options go here.
       },
       all: {
-				dest: 'public/manifest.appcache',
-				cache: ['index.html'] //'bundle.js']//['bundle.js', 'index.html']
-			}
-		}
+        dest: 'public/manifest.appcache',
+        cache: ['index.html'] //'bundle.js']//['bundle.js', 'index.html']
+      }
+    }
 
   });
 };
 
-// Load JSHint task
+//Grunt tasks
 grunt.loadNpmTasks('grunt-contrib-jshint');
-
-// Default task.
-
+grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-appcache');
 grunt.loadNpmTasks('grunt-watchify');
 
 // Default task.
-grunt.registerTask('default', ['watchify', 'jshint']); //, 'appcache'
+grunt.registerTask('default', ['watchify', 'jshint', 'uglify']); //, 'appcache'
