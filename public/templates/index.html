@@ -2,28 +2,14 @@
 <html>
 <head>
   <title>{{ title }}</title>
+   <link href="/css/main.css" rel="stylesheet">
    <link href="/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 
-
-  <div id="villagesFrm">
-    <script type="text/template" id="villageFrmTemplate">
-        <form id="frmVillage" class="navbar-form navbar-right" action="#">
-            <ul><label for="title">Village Name: </label><input id="villageName" type="text" /></ul>
-            <ul><label for="title">District: </label><input id="district" type="text" /></ul>
-            <ul><label for="author">Population: </label><input id="population" type="text" /></ul>
-            <ul><label for="releaseDate">Basic Latrines: </label><input id="basicLatrines" type="text" /></ul>
-            <ul><label for="keywords">Improved Latrines: </label><input id="imprvLatrines" type="text" /></ul>
-            <ul><label for="keywords">Functional WPs: </label><input id="funcWPs" type="text" /></ul>
-            <ul><label for="keywords">Non Functional WPs: </label><input id="nonFuncWPs" type="text" /></ul>
-            <button id="add" class="btn btn-default">Add</button>
-        </form>
-      </script>
-    </div
-
-  <div id="villagesTbl">
-    <table class= "table" style="width: 70%">
+<div class="row">
+  <div id="villagesTbl" class="col-md-7 table-responsive  ">
+    <table class= "table table-striped" style="width: 80%">
          <thead>
               <th>Village Name</th>
               <th>District</th>
@@ -36,6 +22,69 @@
           <tbody id="villageRows">
           </tbody>
       </table>
+  </div>
+
+  <div id="villagesFrm" class="col-md-4" style="width: 30%">
+        <script type="text/template" id="villageFrmTemplate">
+          <form class="form-horizontal" role="form">
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-6 control-label">Village Name</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="villageName">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-6 control-label">District</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="district">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-6 control-label">Population</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="population">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-6 control-label">Basic Latrines</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="basicLatrines">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-6 control-label">Improved Latrines</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="imprvLatrines">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-6 control-label">Functional WPs</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="funcWPs">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-6 control-label">Non Functional WPs</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="nonFuncWPs">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-7 col-sm-10">
+                <button id="add" type="button" class="btn btn-primary btn-lg">Add</button>
+              </div>
+            </div>
+          </form>
+      </script>
+  </div>
   </div>
 
   <script type="text/template" id="villageTemplate">
