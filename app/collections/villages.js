@@ -3,7 +3,7 @@ var Backbone = require("backbone"),
 
 var Villages = Backbone.Collection.extend({
     model: Village,
-
+    local: true,
     url: '/villages'
 });
 

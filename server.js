@@ -73,6 +73,12 @@ app.get('/villages', function(req, res, next) {
     res.json(villages);
 });
 
+app.post('/villages', function(req, res, next) {
+    console.log("Saving villages back to server");
+
+    res.end('Saved sucessfully');
+});
+
 var port = process.env.PORT || 3000;
 
 app.listen(port, function() {

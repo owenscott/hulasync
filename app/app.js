@@ -13,7 +13,7 @@ Backbone.$ = $;
     //Main collection to store all village data.
     var villages = new Villages();
 
-    //Data collection form.
+    //Village data collection form.
     var villageFrm = new VillageFrm({
         collection: villages
     });

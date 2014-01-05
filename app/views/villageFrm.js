@@ -1,7 +1,8 @@
 var Backbone = require('backbone'),
     VillageRow = require('./VillageRow'),
     Village = require("../models/village"),
-    BackboneStickit = require('../../public/js/backbone.stickit.js'),
+    Stickit = require('../../public/js/backbone.stickit.js'),
+    Storage = require('../../public/js/backbone.dualstorage.js'),
     _ = require('underscore'),
     $ = require('jquery-browserify');
 
@@ -45,7 +46,9 @@ var VillageFrm = Backbone.View.extend({
         //Add new village
         this.collection.add(this.model);
 
-        //New instance for next set of data
+        this.model.save();
+
+        // //New instance for next set of data
         this.model = new Village();
 
         //Rebind model -> UI
