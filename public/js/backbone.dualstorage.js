@@ -326,10 +326,9 @@ as that.
     local = result(model, 'local') || result(model.collection, 'local');
     options.dirty = options.remote === false && !local;
     if (options.remote === false || local) {
-      alert("Sync local");
+      console.log("Sync local");
       return localsync(method, model, options);
     }
-    alert(method);
     options.ignoreCallbacks = true;
     success = options.success;
     error = options.error;

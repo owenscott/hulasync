@@ -3,8 +3,16 @@ var Backbone = require("backbone"),
 
 var Villages = Backbone.Collection.extend({
     model: Village,
-    local: true,
-    url: '/villages'
+
+    local: function() {
+        return true;
+    },
+
+    url: '/villages',
+
+    alertMe : function(){
+        alert("You alerted me");
+    }
 });
 
 
