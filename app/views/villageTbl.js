@@ -1,5 +1,5 @@
 var Backbone = require('backbone'),
-    VillageRow = require('./VillageRow'),
+    VillageRow = require('./villageRow'),
     _ = require('underscore'),
     $ = require('jquery-browserify');
 
