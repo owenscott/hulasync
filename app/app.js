@@ -2,8 +2,8 @@ var Backbone = require("backbone"),
 
     Villages = require("./collections/villages.js"),
     Village = require("./models/village.js"),
-    VillageTbl = require("./views/VillageTbl.js"),
-    VillageFrm = require("./views/VillageFrm.js"),
+    VillageTbl = require("./views/villageTbl"),
+    VillageFrm = require("./views/villageFrm"),
 
     $ = require('jquery-browserify');
 
