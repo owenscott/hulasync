@@ -1,8 +1,10 @@
 var Backbone = require("backbone"),
+
     Villages = require("./collections/villages.js"),
     Village = require("./models/village.js"),
     VillageTbl = require("./views/VillageTbl.js"),
     VillageFrm = require("./views/VillageFrm.js"),
+
     $ = require('jquery-browserify');
 
 //Set jquery dependancy on Backbone.
