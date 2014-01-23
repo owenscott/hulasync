@@ -10,6 +10,7 @@ var Backbone = require("backbone"),
 Backbone.$ = $;
 
 function offlineEvent() {
+    alert("confirmed up");
     console.log("this.local==>" + this.local);
     console.log("this.remote==>" + this.remote);
 
@@ -19,8 +20,8 @@ function offlineEvent() {
 
 (function() {
 
+    alert("printing offline");
     console.log(Offline);
-
     Offline.options = {
         checkOnLoad: true,
     };
@@ -38,17 +39,17 @@ function offlineEvent() {
         collection: villages
     });
 
-    // Offline.on("confirmed-up", offlineEvent, {
-    //     collection: villages,
-    //     local: false,
-    //     remote : true
-    // });
+    Offline.on("confirmed-up", offlineEvent, {
+        collection: villages,
+        local: false,
+        remote : true
+    });
 
-    // Offline.on("confirmed-down", offlineEvent, {
-    //     collection: villages,
-    //     local: true,
-    //     remote: false
-    // });
+    Offline.on("confirmed-down", offlineEvent, {
+        collection: villages,
+        local: true,
+        remote: false
+    });
 
     //Load from server.
     villages.fetch();

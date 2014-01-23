@@ -286,4 +286,9 @@
 
   window.Offline = Offline;
 
+  if (typeof exports === 'object') {
+    alert("Requring Offline.js");
+    return module.exports = Offline;
+  }
+
 }).call(this);
