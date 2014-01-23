@@ -1,4 +1,4 @@
-(function() {
+
   var Offline, checkXHR, defaultOptions, extendNative, grab, handlers, init;
 
   extendNative = function(to, from) {
@@ -284,6 +284,6 @@
 
   setTimeout(init, 0);
 
-  window.Offline = Offline;
+module.exports = Offline;
 
-}).call(this);
+
