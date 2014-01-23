@@ -36,17 +36,19 @@ function offlineEvent() {
         collection: villages
     });
 
-    // Offline.on("confirmed-up", offlineEvent, {
-    //     collection: villages,
-    //     local: false,
-    //     remote : true
-    // });
+    
 
-    // Offline.on("confirmed-down", offlineEvent, {
-    //     collection: villages,
-    //     local: true,
-    //     remote: false
-    // });
+    Offline.on("confirmed-up", offlineEvent, {
+        collection: villages,
+        local: false,
+        remote : true
+    });
+
+    Offline.on("confirmed-down", offlineEvent, {
+        collection: villages,
+        local: true,
+        remote: false
+    });
 
     //Load from server.
     villages.fetch();
