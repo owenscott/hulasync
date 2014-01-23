@@ -10,6 +10,7 @@ var Backbone = require("backbone"),
 Backbone.$ = $;
 
 function offlineEvent() {
+
     console.log("this.local==>" + this.local);
     console.log("this.remote==>" + this.remote);
 
@@ -19,7 +20,6 @@ function offlineEvent() {
 
 (function() {
 
-    console.log(Offline);
     Offline.options = {
         checkOnLoad: true,
     };
