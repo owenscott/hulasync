@@ -51,7 +51,7 @@ function offlineEvent() {
         remote: false
     });
 
-    //Load from server.
+    //load from server.
     villages.fetch();
 
 })();

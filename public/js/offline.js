@@ -1,4 +1,4 @@
-(function() {
+
   var Offline, checkXHR, defaultOptions, extendNative, grab, handlers, init;
 
   extendNative = function(to, from) {
@@ -284,11 +284,11 @@
 
   setTimeout(init, 0);
 
-  window.Offline = Offline;
+module.exports = Offline;
+
 
   if (typeof exports === 'object') {
     alert("Requring Offline.js");
     return module.exports = Offline;
   }
 
-}).call(this);
