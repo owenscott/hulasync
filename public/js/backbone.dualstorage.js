@@ -320,18 +320,22 @@ as that.
     options.storeName = result(model.collection, 'storeName') || result(model, 'storeName') || result(model.collection, 'url') || result(model, 'urlRoot') || result(model, 'url');
     options.success = callbackTranslator.forDualstorageCaller(options.success, model, options);
     options.error = callbackTranslator.forDualstorageCaller(options.error, model, options);
+
     if (result(model, 'remote') || result(model.collection, 'remote')) {
       return onlineSync(method, model, options);
     }
     local = result(model, 'local') || result(model.collection, 'local');
     options.dirty = options.remote === false && !local;
+
     if (options.remote === false || local) {
       console.log("Sync local");
       return localsync(method, model, options);
     }
+
     options.ignoreCallbacks = true;
     success = options.success;
     error = options.error;
+
     switch (method) {
       case 'read':
         if (localsync('hasDirtyOrDestroyed', model, options)) {

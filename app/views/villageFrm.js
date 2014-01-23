@@ -45,7 +45,6 @@ var VillageFrm = Backbone.View.extend({
 
         //Add new village
         this.collection.add(this.model);
-
         this.model.save();
 
         // //New instance for next set of data

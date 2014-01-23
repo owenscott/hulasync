@@ -30,12 +30,14 @@ Backbone.$ = $;
 
     Offline.on("confirmed-up", offlineEvent, {
         collection: villages,
-        state: true
+        local: false,
+        remote : true
     });
 
     Offline.on("confirmed-down", offlineEvent, {
         collection: villages,
-        state: false
+        local: true,
+        remote: false
     });
 
     //Load from server.
@@ -45,5 +47,9 @@ Backbone.$ = $;
 
 
 function offlineEvent() {
-    this.collection.alertMe();
+    console.log("this.local==>" + this.local);
+    console.log("this.remote==>" + this.remote);
+
+    this.collection.local = this.local;
+    this.collection.remote = this.remote;
 }

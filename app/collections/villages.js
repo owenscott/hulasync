@@ -4,15 +4,11 @@ var Backbone = require("backbone"),
 var Villages = Backbone.Collection.extend({
     model: Village,
 
-    local: function() {
-        return true;
-    },
+    remote: true,
 
-    url: '/villages',
+    local: false,
 
-    alertMe : function(){
-        alert("You alerted me");
-    }
+    url: '/villages'
 });
 
 
