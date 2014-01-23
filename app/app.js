@@ -19,6 +19,8 @@ function offlineEvent() {
 
 (function() {
 
+    console.log(Offline);
+
     Offline.options = {
         checkOnLoad: true,
     };
