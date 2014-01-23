@@ -1,5 +1,5 @@
 var Backbone = require('backbone'),
-    VillageRow = require('./VillageRow'),
+    VillageRow = require('./villageRow'),
     Village = require("../models/village"),
     Stickit = require('../../public/js/backbone.stickit.js'),
     Storage = require('../../public/js/backbone.dualstorage.js'),
