@@ -1,14 +1,21 @@
 var Backbone = require("backbone"),
-
     Villages = require("./collections/villages.js"),
     Village = require("./models/village.js"),
     VillageTbl = require("./views/villageTbl"),
-    offline = require("../public/js/offline"),
-
+    VillageFrm = require("./views/VillageFrm"),
+    Offline = require("../public/js/offline"),
     $ = require('jquery-browserify');
 
 //Set jquery dependancy on Backbone.
 Backbone.$ = $;
+
+function offlineEvent() {
+    console.log("this.local==>" + this.local);
+    console.log("this.remote==>" + this.remote);
+
+    this.collection.local = this.local;
+    this.collection.remote = this.remote;
+}
 
 (function() {
 
@@ -29,28 +36,20 @@ Backbone.$ = $;
         collection: villages
     });
 
-    Offline.on("confirmed-up", offlineEvent, {
-        collection: villages,
-        local: false,
-        remote : true
-    });
+    // Offline.on("confirmed-up", offlineEvent, {
+    //     collection: villages,
+    //     local: false,
+    //     remote : true
+    // });
 
-    Offline.on("confirmed-down", offlineEvent, {
-        collection: villages,
-        local: true,
-        remote: false
-    });
+    // Offline.on("confirmed-down", offlineEvent, {
+    //     collection: villages,
+    //     local: true,
+    //     remote: false
+    // });
 
     //Load from server.
     villages.fetch();
 
 })();
 
-
-function offlineEvent() {
-    console.log("this.local==>" + this.local);
-    console.log("this.remote==>" + this.remote);
-
-    this.collection.local = this.local;
-    this.collection.remote = this.remote;
-}
