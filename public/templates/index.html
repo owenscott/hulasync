@@ -15,7 +15,7 @@
                 <a href="#"><img src="/img/hulasync.png" alt="hulasync"/></a>
                 <a href="#"><img src="/img/tagline.png" alt="offline syncing for client-side web apps"/></a>
             </div>
-            
+
             <!-- Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">                
                 <div class="collapse navbar-collapse">
@@ -27,87 +27,89 @@
                 </div>
             </nav>
             <hr />
-        
-        <div class="row">
-            <div id="villagesTbl" class="col-md-7 table-responsive">
-                <table class= "table table-striped" style="width: 80%">
-                    <thead>
-                    <th>Village Name</th>
-                    <th>District</th>
-                    <th>Population</th>
-                    <th>Basic Latrines</th>
-                    <th>Improved Latrines</th>
-                    <th>Functional WPs</th>
-                    <th>Non Functional WPs</th>
-                    </thead>
-                    <tbody id="villageRows">
-                    </tbody>
-                </table>
-            </div>
 
-            <div id="villagesFrm" class="col-md-4" style="width: 30%">
-                <script type="text/template" id="villageFrmTemplate">
-                    <form class="form-horizontal" role="form">
+            <div class="row">
+                <div id="villagesTbl" class="col-md-7 table-responsive">
+                    <table class= "table table-striped" style="width: 80%">
+                        <thead>
+                        <th>Village Name</th>
+                        <th>District</th>
+                        <th>Population</th>
+                        <th>Basic Latrines</th>
+                        <th>Improved Latrines</th>
+                        <th>Functional WPs</th>
+                        <th>Non Functional WPs</th>
+                        </thead>
+                        <tbody id="villageRows">
+                        </tbody>
+                    </table>
+                </div>
 
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-6 control-label">Village Name</label>
-                    <div class="col-sm-6">
-                    <input type="text" class="form-control" id="villageName">
-                    </div>
-                    </div>
+                <div id="villagesFrm" class="col-md-4" style="width: 30%">
+                    <script type="text/template" id="villageFrmTemplate">
+                        <form class="form-horizontal" role="form">
 
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-6 control-label">District</label>
-                    <div class="col-sm-6">
-                    <input type="text" class="form-control" id="district">
-                    </div>
-                    </div>
+                        <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-6 control-label">Village Name</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="villageName">
+                        </div>
+                        </div>
 
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-6 control-label">Population</label>
-                    <div class="col-sm-6">
-                    <input type="text" class="form-control" id="population">
-                    </div>
-                    </div>
+                        <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-6 control-label">District</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="district">
+                        </div>
+                        </div>
 
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-6 control-label">Basic Latrines</label>
-                    <div class="col-sm-6">
-                    <input type="text" class="form-control" id="basicLatrines">
-                    </div>
-                    </div>
+                        <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-6 control-label">Population</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="population">
+                        </div>
+                        </div>
 
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-6 control-label">Improved Latrines</label>
-                    <div class="col-sm-6">
-                    <input type="text" class="form-control" id="imprvLatrines">
-                    </div>
-                    </div>
+                        <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-6 control-label">Basic Latrines</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="basicLatrines">
+                        </div>
+                        </div>
 
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-6 control-label">Functional WPs</label>
-                    <div class="col-sm-6">
-                    <input type="text" class="form-control" id="funcWPs">
-                    </div>
-                    </div>
+                        <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-6 control-label">Improved Latrines</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="imprvLatrines">
+                        </div>
+                        </div>
 
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-6 control-label">Non Functional WPs</label>
-                    <div class="col-sm-6">
-                    <input type="text" class="form-control" id="nonFuncWPs">
-                    </div>
-                    </div>
+                        <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-6 control-label">Functional WPs</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="funcWPs">
+                        </div>
+                        </div>
 
-                    <div class="form-group">
-                    <div class="col-sm-offset-7 col-sm-10">
-                    <button id="add" type="button" class="btn btn-primary btn-lg">Add</button>
-                    </div>
-                    </div>
-                    </form>
-                </script>
+                        <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-6 control-label">Non Functional WPs</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="nonFuncWPs">
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                        <div class="col-sm-offset-7 col-sm-10">
+                        <button id="add" type="button" class="btn btn-primary btn-lg">Add</button>
+                        </div>
+                        </div>
+                        </form>
+                    </script>
+                </div>
             </div>
         </div>
-
+        
+        
         <script type="text/template" id="villageTemplate">
             <td><%= villageName %></td>
             <td><%= district %></td>
@@ -117,8 +119,6 @@
             <td><%= funcWPs %></td>
             <td><%= nonFuncWPs %></td>
         </script>
-
         <script src="/bundle.js"></script>
-</div>
     </body>
 </html>
